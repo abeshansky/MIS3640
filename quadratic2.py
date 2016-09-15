@@ -1,0 +1,2 @@
+import math
+def quads():
