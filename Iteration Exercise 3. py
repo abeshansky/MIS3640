@@ -1,0 +1,22 @@
+import math
+
+a = 0
+x = 3
+
+def mysqrt(a):
+    while True:
+        y = (x + a/x) / 2
+        if y == x:
+            break
+        x = y
+
+def diff(a):
+    (abs(mysqrt(a) - math.sqrt(a)))
+    print result
+
+while a < 11:
+    print (a)
+    print (mysqrt(a))
+    print (math.sqrt(a))
+    print (diff(a))
+    a +=1
