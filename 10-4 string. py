@@ -1,0 +1,64 @@
+##### you can change a list but not a string
+# mutable means you can change the item
+# str = 'Chris'
+# str[4] = 'x'
+# cannot be done, because it is immutable
+a_list = ['C', 'h', 'r', 'i', 's']
+a_list[4] = 'x'
+print (a_list)
+# will print ['C', 'h', 'r', 'i', 'x']
+
+list_1 = [10,20]
+AFC_east = ['New England Patriots', 'Buffalo Bills', 'Miami Dolphins', 'New York Jets']
+a_nested_list = ['spam', 2.0, 5, [10,20]]
+print(AFC_east)
+AFC_east[3] = 'New York Giants'
+print(AFC_east)
+print(AFC_east[0:2])
+print(AFC_east[2:4])
+print(AFC_east[-2:])
+
+L = [
+    ['Apple', 'Google', 'Microsoft'],
+    ['Java', 'Python', ['Ruby','On Rail'], 'PHP'],
+    ['Adam', 'Bart', 'Lisa']   
+]
+print(L[0][0]) #Apple
+print(L[2][2]) #Lisa
+print(L[1][2][1]) #On Rail
+
+for team in AFC_east:
+    print(team)
+
+my_list = ['spam', 1, ['New England Patriots', 'Buffalo Bills', 'Miami Dolphins', 'New York Jets'], [1,2,3]]
+print(len(my_list))
+
+a = [1, 2, 3]
+b = [4, 5, 6]
+c = a + b
+print(c)
+
+m = []
+m.append(a)
+m.append(b)
+print(m)
+
+t = ['a','b','c','d','e','f']
+# ['b', 'c']
+print(t[1:3])
+# ['a', 'b', 'c', 'd']
+print(t[:4])
+# ['d', 'e', 'f']
+print(t[3:]) # t[-3:]
+
+
+
+######
+
+import random
+def call_three(roster):
+    number_list = random.sample(range(1, len(roster)), 3)
+    for number in numer_list:
+    print(roster[number])
+
+call_three(roster)

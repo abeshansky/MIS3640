@@ -1,8 +1,9 @@
+
 def isWordGuessed(secretWord, lettersGuessed):
     for letter in secretWord:
         if letter not in lettersGuessed:
             return False
-    return True
+        return True
             
 def getGuessedWord(secretWord, lettersGuessed):
     blanks = '_' * len(secretWord)
@@ -33,15 +34,13 @@ def hangman(secretWord):
             lettersGuessed.append(Guess)
             print(getGuessedWord(secretWord, lettersGuessed))
             if isWordGuessed(secretWord, lettersGuessed) == True:
-                print("You Win! The word was %s." % secretWord)
-                return
+                return ("You Win! The word was %s" % secretWord)
         elif Guess in lettersGuessed:
             print("You have already guessed that letter. Guess again!")
         else:
             print("That letter is not in my word. Guess again!")
             GuessRemain = GuessRemain - 1
-    print("You lose!")
-    return
+    return "You lose!"
 
 secretWord = 'baseball'
 hangman(secretWord)
