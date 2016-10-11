@@ -53,8 +53,11 @@ def isWordGuessed(secretWord, lettersGuessed):
     '''
     for letter in secretWord:
         if letter not in lettersGuessed:
+            #checks to see if all letters in secretWord are in the list lettersGuessed
             return False
+            #False - not all letters are there and the word is not guessed
     return True
+    #True - all the letters are there and the word is guessed
 
 # When you've completed your function isWordGuessed, uncomment these three lines
 # and run this file to test!s
@@ -75,9 +78,12 @@ def getGuessedWord(secretWord, lettersGuessed):
       what letters in secretWord have been guessed so far.
     '''
     blanks = '_' * len(secretWord)
+    #stars out the word at blank spaces * the length of secretWord
     for i in range(len(secretWord)):
         if secretWord[i] in lettersGuessed:
+            #checks to see if the letters in secretWord are in the list lettersGuessed
             blanks = blanks[:i] + secretWord[i] + blanks[i+1:]
+            #inserts the letter in replace of the blank space if it is selected
     return blanks
 
 
@@ -103,10 +109,13 @@ def getAvailableLetters(lettersGuessed):
 
     import string
     alphabet = string.ascii_lowercase
+    #creates the string of the alphabet in lowercase
     for letter in lettersGuessed:
         if letter in alphabet:
             alphabet = alphabet.replace(letter, "")
+            #removes the letter if it is in the list lettersGuessed and replaces it with an empty space
     return alphabet
+    #returns the updated alphabet (letters remaining)
 
 
 # When you've completed your function getAvailableLetters, uncomment these two lines
@@ -137,24 +146,36 @@ def hangman(secretWord):
     length = len(secretWord)
     print ("The secret word has %d letters!" % length)
     GuessRemain = 8
+    #Game starts off at 8 guesses
     lettersGuessed = []
+    #creates the list that stores the letters that are guessed
     while GuessRemain > 0:
+        # will continue to run as long as you have at least one guess remaining
         print("You have %d guesses left." % GuessRemain)
         print("The available letters are: %s." % getAvailableLetters(lettersGuessed))
         Guess = str(input("What is your guess?: "))
+        #asks for your guess
         if Guess in secretWord:
             lettersGuessed.append(Guess)
+            #adds your guess to the list
             print(getGuessedWord(secretWord, lettersGuessed))
             if isWordGuessed(secretWord, lettersGuessed) == True:
                 print("You Win! The word was %s." % secretWord)
+                #since all of the letters in secretWord were chosen, you win!
                 return
         elif Guess in lettersGuessed:
+            print(getGuessedWord(secretWord, lettersGuessed))
             print("You have already guessed that letter. Guess again!")
+            #if the guess is already in the list, you have already guessed it and must choose another letter
         else:
+            print(getGuessedWord(secretWord, lettersGuessed))
             print("That letter is not in my word. Guess again!")
             lettersGuessed.append(Guess)
+            #the new incorrect guess is added to the list
             GuessRemain = GuessRemain - 1
+            #you lose a turn
     print("You lose! The word was %s." % secretWord)
+    #you ran out of GuessRemain (guesses remaining)
     return
 
 
