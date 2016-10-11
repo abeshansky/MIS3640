@@ -51,11 +51,10 @@ def isWordGuessed(secretWord, lettersGuessed):
     returns: boolean, True if all the letters of secretWord are in lettersGuessed;
       False otherwise
     '''
-    def isWordGuessed(secretWord, lettersGuessed):
-        for letter in secretWord:
-            if letter not in lettersGuessed:
-                return False
-        return True
+    for letter in secretWord:
+        if letter not in lettersGuessed:
+            return False
+    return True
 
 # When you've completed your function isWordGuessed, uncomment these three lines
 # and run this file to test!s
@@ -75,12 +74,11 @@ def getGuessedWord(secretWord, lettersGuessed):
     returns: string, comprised of letters and underscores that represents
       what letters in secretWord have been guessed so far.
     '''
-    def getGuessedWord(secretWord, lettersGuessed):
-        blanks = '_' * len(secretWord)
-        for i in range(len(secretWord)):
-            if secretWord[i] in lettersGuessed:
-                blanks = blanks[:i] + secretWord[i] + blanks[i+1:]
-        return blanks
+    blanks = '_' * len(secretWord)
+    for i in range(len(secretWord)):
+        if secretWord[i] in lettersGuessed:
+            blanks = blanks[:i] + secretWord[i] + blanks[i+1:]
+    return blanks
 
 
 # When you've completed your function getGuessedWord, uncomment these three lines
@@ -103,13 +101,12 @@ def getAvailableLetters(lettersGuessed):
     # Hint: You might consider using string.ascii_lowercase, which
     # is a string comprised of all lowercase letters.
 
-    def getAvailableLetters(lettersGuessed):
-        import string
-        alphabet = string.ascii_lowercase
-        for letter in lettersGuessed:
-            if letter in alphabet:
-                alphabet = alphabet.replace(letter, "")
-        return alphabet
+    import string
+    alphabet = string.ascii_lowercase
+    for letter in lettersGuessed:
+        if letter in alphabet:
+            alphabet = alphabet.replace(letter, "")
+    return alphabet
 
 
 # When you've completed your function getAvailableLetters, uncomment these two lines
