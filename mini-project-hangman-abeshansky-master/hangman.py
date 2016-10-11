@@ -136,30 +136,29 @@ def hangman(secretWord):
       user has not yet guessed.
     Follows the other limitations detailed in the problem write-up.
     '''
-    def hangman(secretWord):
-        print ("Welcome to Hangman!")
-        length = len(secretWord)
-        print ("The secret word has %d letters!" % length)
-        GuessRemain = 8
-        lettersGuessed = []
-        while GuessRemain > 0:
-            print("You have %d guesses left." % GuessRemain)
-            print("The available letters are: %s." % getAvailableLetters(lettersGuessed))
-            Guess = str(input("What is your guess?: "))
-            if Guess in secretWord:
-                lettersGuessed.append(Guess)
-                print(getGuessedWord(secretWord, lettersGuessed))
-                if isWordGuessed(secretWord, lettersGuessed) == True:
-                    print("You Win! The word was %s." % secretWord)
-                    return
-            elif Guess in lettersGuessed:
-                print("You have already guessed that letter. Guess again!")
-            else:
-                print("That letter is not in my word. Guess again!")
-                lettersGuessed.append(Guess)
-                GuessRemain = GuessRemain - 1
-        print("You lose!")
-        return
+    print ("Welcome to Hangman!")
+    length = len(secretWord)
+    print ("The secret word has %d letters!" % length)
+    GuessRemain = 8
+    lettersGuessed = []
+    while GuessRemain > 0:
+        print("You have %d guesses left." % GuessRemain)
+        print("The available letters are: %s." % getAvailableLetters(lettersGuessed))
+        Guess = str(input("What is your guess?: "))
+        if Guess in secretWord:
+            lettersGuessed.append(Guess)
+            print(getGuessedWord(secretWord, lettersGuessed))
+            if isWordGuessed(secretWord, lettersGuessed) == True:
+                print("You Win! The word was %s." % secretWord)
+                return
+        elif Guess in lettersGuessed:
+            print("You have already guessed that letter. Guess again!")
+        else:
+            print("That letter is not in my word. Guess again!")
+            lettersGuessed.append(Guess)
+            GuessRemain = GuessRemain - 1
+    print("You lose! The word was %s." % secretWord)
+    return
 
 
 # When you've completed your hangman function, uncomment these two lines
