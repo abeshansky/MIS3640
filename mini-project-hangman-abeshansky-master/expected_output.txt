@@ -1,0 +1,181 @@
+Below are 5 testing cases and expected output.
+
+------------------------------------------------------
+Test 1. Function call: hangman(c)
+
+Testing if we can correctly guess a short word...
+
+Output:
+
+    Welcome to the game, Hangman!
+    I am thinking of a word that is 1 letters long.
+    -------------
+    You have 8 guesses left.
+    Available letters: abcdefghijklmnopqrstuvwxyz
+    Please guess a letter: c
+    Good guess: c
+    ------------
+    Congratulations, you won!
+    None
+
+
+
+
+------------------------------------------------------
+Test 2. Function call: hangman(zzz)
+
+Testing if we can correctly fill in repeat letters ...
+
+Output:
+
+    Welcome to the game, Hangman!
+    I am thinking of a word that is 3 letters long.
+    -------------
+    You have 8 guesses left.
+    Available letters: abcdefghijklmnopqrstuvwxyz
+    Please guess a letter: z
+    Good guess: zzz
+    ------------
+    Congratulations, you won!
+    None
+
+
+
+
+
+
+------------------------------------------------------
+Test 3. Function call: hangman(c)
+
+Testing if we can incorrectly guess a short word...
+
+Output:
+
+    Welcome to the game, Hangman!
+    I am thinking of a word that is 1 letters long.
+    -------------
+    You have 8 guesses left.
+    Available letters: abcdefghijklmnopqrstuvwxyz
+    Please guess a letter: a
+    Oops! That letter is not in my word:_ 
+    -----------
+    You have 7 guesses left.
+    Available letters: bcdefghijklmnopqrstuvwxyz
+    Please guess a letter: b
+    Oops! That letter is not in my word:_ 
+    -----------
+    You have 6 guesses left.
+    Available letters: cdefghijklmnopqrstuvwxyz
+    Please guess a letter: d
+    Oops! That letter is not in my word:_ 
+    -----------
+    You have 5 guesses left.
+    Available letters: cefghijklmnopqrstuvwxyz
+    Please guess a letter: e
+    Oops! That letter is not in my word:_ 
+    -----------
+    You have 4 guesses left.
+    Available letters: cfghijklmnopqrstuvwxyz
+    Please guess a letter: f
+    Oops! That letter is not in my word:_ 
+    -----------
+    You have 3 guesses left.
+    Available letters: cghijklmnopqrstuvwxyz
+    Please guess a letter: g
+    Oops! That letter is not in my word:_ 
+    -----------
+    You have 2 guesses left.
+    Available letters: chijklmnopqrstuvwxyz
+    Please guess a letter: h
+    Oops! That letter is not in my word:_ 
+    -----------
+    You have 1 guesses left.
+    Available letters: cijklmnopqrstuvwxyz
+    Please guess a letter: i
+    Oops! That letter is not in my word:_ 
+    -----------
+    Sorry, you ran out of guesses. The word was c. 
+    None
+
+
+
+
+------------------------------------------------------
+Test 4. Function call: hangman(sea)
+
+Testing if we handle repeat correct guesses...
+
+Output:
+
+    Welcome to the game, Hangman!
+    I am thinking of a word that is 3 letters long.
+    -------------
+    You have 8 guesses left.
+    Available letters: abcdefghijklmnopqrstuvwxyz
+    Please guess a letter: a
+    Good guess: _ _ a
+    ------------
+    You have 8 guesses left.
+    Available letters: bcdefghijklmnopqrstuvwxyz
+    Please guess a letter: e
+    Good guess: _ ea
+    ------------
+    You have 8 guesses left.
+    Available letters: bcdfghijklmnopqrstuvwxyz
+    Please guess a letter: a
+    Oops! You've already guessed that letter: _ ea
+    -----------
+    You have 8 guesses left.
+    Available letters: bcdfghijklmnopqrstuvwxyz
+    Please guess a letter: e
+    Oops! You've already guessed that letter: _ ea
+    -----------
+    You have 8 guesses left.
+    Available letters: bcdfghijklmnopqrstuvwxyz
+    Please guess a letter: s
+    Good guess: sea
+    ------------
+    Congratulations, you won!
+    None
+
+
+
+
+------------------------------------------------------
+Test 5. Function call: hangman(y)
+
+Testing if we handle repeat incorrect guesses...
+
+Output:
+
+    Welcome to the game, Hangman!
+    I am thinking of a word that is 1 letters long.
+    -------------
+    You have 8 guesses left.
+    Available letters: abcdefghijklmnopqrstuvwxyz
+    Please guess a letter: x
+    Oops! That letter is not in my word:_ 
+    -----------
+    You have 7 guesses left.
+    Available letters: abcdefghijklmnopqrstuvwyz
+    Please guess a letter: z
+    Oops! That letter is not in my word:_ 
+    -----------
+    You have 6 guesses left.
+    Available letters: abcdefghijklmnopqrstuvwy
+    Please guess a letter: x
+    Oops! You've already guessed that letter: _ 
+    -----------
+    You have 6 guesses left.
+    Available letters: abcdefghijklmnopqrstuvwy
+    Please guess a letter: z
+    Oops! You've already guessed that letter: _ 
+    -----------
+    You have 6 guesses left.
+    Available letters: abcdefghijklmnopqrstuvwy
+    Please guess a letter: y
+    Good guess: y
+    ------------
+    Congratulations, you won!
+    None
+
