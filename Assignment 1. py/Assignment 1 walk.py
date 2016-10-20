@@ -1,53 +1,32 @@
 print('THE DRUNKARDS WALK')
 import math
+# import math to use sqrt function
 import random
+# import random to allow to choose a random direction
 def Drunk_Walk():
     x = 0
     y = 0
-    n = 4
+    # creates the starting point (0,0)
+    n = int(input('How many times would you like to move?'))
+    # asks the user how many times to go through the simulation
     distance = 0
-    # sets starting point at (0,0)
-    for i in range (1,n):
-        i = 1
+    # creates the initial distance as 0 from the starting point
+    for i in range(n):
         a = random.randint(1,4)
-        # randomly selects one of the four routes, four times
         if a == 1:
-            x = x+0
-            y = y+1
+            y = y + 1
             i =+1
-            # will move from the previous point and move on to the next round
         if a == 2:
-            x = x+1
-            y = y+0
+            x = x + 1
             i =+1
         if a == 3:
-            x = x+0
-            y = y-1
+            y = y - 1
             i =+1
         if a == 4:
-            x = x-1
-            y = y+0
-            i =+1
+            x = x - 1
+            i =+ 1
     new_x = (x)^2
     new_y = (y)^2
     distance = math.sqrt(new_x + new_y)
-    #solves for the diagonal distance from the starting point
-    print(distance)
-    return distance
-
+    print("After the Drunkard has walked", n, "intersections, he is now", distance, "blocks from where he started.")
 Drunk_Walk()
-
-import turtle
-if a == 1:
-    t.fd(100)
-if a == 2:
-    t.rt(90)
-    t.fd(100)
-if a == 3:
-    t.bk(100)
-else:
-    t.lt(90)
-    t.fd(100)
-
-turtle.Turtle()
-Drunk_Walk(AleX)
