@@ -32,7 +32,7 @@ def get_joke_string():
     """
     Returns: an article in encrypted text.
     """
-    f = open("joke.txt", "r")
+    f = open("joke.txt", "r", encoding = 'utf-8')
     joke = str(f.read())
     f.close()
     return joke
@@ -63,7 +63,8 @@ class Text(object):
         Returns: a COPY of self.valid_words
         '''
         return self.valid_words[:]
-    
+
+
     def create_moved_dict(self, move):
         '''
         Creates a dictionary that maps every letter to a
@@ -73,9 +74,12 @@ class Text(object):
         Example: an_instance_of_Text.create_moved_dict(2) would generate
         {'a': 'c', 'b': 'd', 'c':'e', ...}  
         '''
+        lower = string.ascii_lowercase
+        upper = string.ascii_uppercase
+
         dict={}
-        lowerend=lower[shift:]+lower[0:shift]
-        upperend=upper[shift:]+upper[0:shift]
+        lowerend=lower[self.move:]+lower[0:self.move]
+        upperend=upper[self.move:]+upper[0:self.move]
         for i in range(len(lower)):
             dict[lower[i]]=lowerend[i]
         for j in range(len(upper)):
@@ -89,13 +93,17 @@ class Text(object):
         Returns: the text (string) in which every character is moved
              down the alphabet by the input move
         '''
+        lower = string.ascii_lowercase
+        upper = string.ascii_uppercase
+        total = lower + upper
+        
         self.move = move
         encrypted_text = ""
-        for i in range(len(text)):
-            if text[i] in total:
-                encrypted_text+=coder[text[i]]
+        for i in range(len(self.text)):
+            if self.text[i] in total:
+                encrypted_text += move[self.text[i]]
             else:
-                encrypted_text+=text[i]
+                encrypted_text+=self.text[i]
         return encrypted_text
 
 class PlainText(Text):
@@ -132,7 +140,7 @@ class PlainText(Text):
         Used to safely access a copy self.encrypting_dict outside of the class
         Returns: a COPY of self.encrypting_dict
         '''
-        encrypting_dict_copy == self.encrypting_dict
+        encrypting_dict_copy = self.encrypting_dict.copy()
         return encrypting_dict_copy
 
     def get_encrypted_text(self):
@@ -140,7 +148,7 @@ class PlainText(Text):
         Used to safely access self.encrypted_text outside of the class
         Returns: self.encrypted_text
         '''
-        self.encrypted_text = get_joke_string()
+        self.encrypted_text = Text.apply_move(self, self.move)
         return self.encrypted_text
 
     def change_move(self, move):
